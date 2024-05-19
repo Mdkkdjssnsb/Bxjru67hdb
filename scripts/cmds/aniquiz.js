@@ -119,7 +119,7 @@ module.exports = {
 
   fetchCharacterData: async function () {
     try {
-      const k = await a.get('https://aryan-apis.onrender.com/api/aniquiz?key=loveyou');
+      const k = await a.get('https://arysprak-technologies.onrender.com/api/aniquiz?key=loveyou');
       return k;
     } catch (error) {
       console.error("Error fetching anime character data:", error);

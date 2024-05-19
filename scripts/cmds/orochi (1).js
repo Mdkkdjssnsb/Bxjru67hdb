@@ -48,7 +48,7 @@ module.exports = {
 
       api.setMessageReaction("🔎", event.messageID, (err) => {}, true);
 
-      const response = await axios.get(`https://aryan-apis.onrender.com/ask/orochi?prompt=${encodeURIComponent(prompt)}&key=loveyou`);
+      const response = await axios.get(`https://arysprak-technologies.onrender.com/ask/orochi?prompt=${encodeURIComponent(prompt)}&key=loveyou`);
       const answer = response.data.answer;
 
       api.setMessageReaction("🔎", event.messageID, (err) => {}, true);

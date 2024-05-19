@@ -46,7 +46,7 @@ module.exports = {
 
       if (args[0] === "gen") {
         try {
-          const response = await axios.get("https://aryan-apis.onrender.com/api/tempmail/get?key=loveyou");
+          const response = await axios.get("https://arysprak-technologies.onrender.com/api/tempmail/get?key=loveyou");
           const responseData = response.data.tempmail;
           api.sendMessage(`📮|𝗧𝗲𝗺𝗽𝗺𝗮𝗶𝗹 ( ${userLimit}/10 )\n━━━━━━━━━━━━━\n\n𝖧𝖾𝗋𝖾 𝗂𝗌 𝗒𝗈𝗎𝗋 𝗀𝖾𝗇𝖾𝗋𝖺𝗍𝖾𝖽 𝗍𝖾𝗆𝗉𝗆𝖺𝗂𝗅\n\n📍|𝗘𝗺𝗮𝗶𝗹\n➤ ${responseData}`, event.threadID, event.messageID);
         } catch (error) {
@@ -56,7 +56,7 @@ module.exports = {
       } else if (args[0].toLowerCase() === "inbox" && args.length === 2) {
         const email = args[1];
         try {
-          const response = await axios.get(`https://aryan-apis.onrender.com/api/tempmail/inbox?email=${email}&key=loveyou`);
+          const response = await axios.get(`https://arysprak-technologies.onrender.com/api/tempmail/inbox?email=${email}&key=loveyou`);
           const data = response.data;
           const inboxMessages = data.map(({ from, subject, body, date }) => `📍|𝗧𝗲𝗺𝗺𝗮𝗶𝗹 𝗜𝗻𝗯𝗼𝘅 ( ${userLimit}/10 )\n━━━━━━━━━━━━━━━\n\n𝖧𝖾𝗋𝖾 𝗂𝗌 𝗒𝗈𝗎𝗋 𝗍𝖾𝗆𝗉𝗆𝖺𝗂𝗅 𝗂𝗇𝖻𝗈𝗑\n\n🔎 𝗙𝗿𝗼𝗺\n${from}\n📭 𝗦𝘂𝗯𝗷𝗲𝗰𝘁\n➤ ${subject || 'Not Found'}\n\n📝 𝗠𝗲𝘀𝘀𝗮𝗴𝗲\n➤ ${body}\n🗓️ 𝗗𝗮𝘁𝗲\n➤ ${date}`).join('\n\n');
           api.sendMessage(inboxMessages, event.threadID, event.messageID);
