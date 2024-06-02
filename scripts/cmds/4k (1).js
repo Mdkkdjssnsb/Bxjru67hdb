@@ -66,7 +66,7 @@ module.exports = {
       }
 
       const url = await tinyurl.shorten(imageUrl);
-      const response = await axios.get(`https://aryan-apis.onrender.com/api/4k?url=${url}&key=loveyou`);
+      const response = await axios.get(`https://aryanapiz.onrender.com/api/4k?url=${url}`);
 
       message.reply("🔎| 𝖯𝗋𝗈𝖼𝖾𝗌𝗌𝗂𝗇𝗀 𝗒𝗈𝗎𝗋 𝗋𝖾𝗊𝗎𝖾𝗌𝗍 𝗉𝗅𝖾𝖺𝗌𝖾 𝗐𝖺𝗂𝗍.......");
 
