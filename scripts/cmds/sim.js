@@ -15,7 +15,7 @@ module.exports = {
   },
   t: async function (a) {
     try {
-      const response = await axios.get(`https://aryan-apis.onrender.com/api/sim?chat=${a}&lang=en&key=loveyou`);
+      const response = await axios.get(`https://aryanapiz.onrender.com/api/sim?chat=${a}&lang=en`);
       return response.data.answer;
     } catch (error) {
       throw error;
