@@ -42,13 +42,13 @@ module.exports = {
 
       const prompt = event.body.substring(prefix.length).trim();
       if (!prompt) {
-        await message.reply(`🤖 𝗢𝗿𝗼𝗰𝗵𝗶 ( ${userLimit}/50 )\n\nHello! How can I assist you today?`);
+        await message.reply(`🤖 𝗢𝗿𝗼𝗰𝗵𝗶\n\nHello! How can I assist you today?`);
         return;
       }
 
       api.setMessageReaction("🔎", event.messageID, (err) => {}, true);
 
-      const response = await axios.get(`https://aryan-apis.onrender.com/ask/orochi?prompt=${encodeURIComponent(prompt)}&key=loveyou`);
+      const response = await axios.get(`https://aryanapiz.onrender.com/api/orochiai?prompt=${encodeURIComponent(prompt)}`);
       const answer = response.data.answer;
 
       api.setMessageReaction("🔎", event.messageID, (err) => {}, true);
