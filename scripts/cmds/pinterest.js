@@ -51,7 +51,7 @@ module.exports = {
       const keySearch = args.join(" ");
       if (!keySearch.includes("-")) {
         return api.sendMessage(
-          `⛔ Invalid Usage ( ${userLimit}/5 )\n━━━━━━━━━━━━━━━\n\nPlease enter the search query and number of images.`,
+          `⛔ 𝗜𝗻𝘃𝗮𝗹𝗶𝗱 𝗨𝘀𝗮𝗴𝗲 ( ${userLimit}/5 )\n━━━━━━━━━━━━━━━\n\nPlease enter the search query and number of images.`,
           event.threadID,
           event.messageID
         );
@@ -63,10 +63,10 @@ module.exports = {
         numberSearch = 6;
       }
 
-      const apiUrl = `https://aryanapiz.onrender.com/api/pinterest2?search=${encodeURIComponent(keySearchs)}&keysearch=${numberSearch}`;
+      const apiUrl = `https://itsaryan.onrender.com/api/pinterest?query=${encodeURIComponent(keySearchs)}&limits=${numberSearch}`;
 
       const res = await axios.get(apiUrl);
-      const data = res.data.result;
+      const data = res.data;
       const imgData = [];
 
       for (let i = 0; i < Math.min(numberSearch, data.length); i++) {
@@ -79,7 +79,7 @@ module.exports = {
       }
 
       await api.sendMessage({
-        body: `📸 Pinterest ( ${userLimit}/5 )\n━━━━━━━━━━━━━━━\n\nHere are the top ${numberSearch} results for your query ${keySearchs}`,
+        body: `📸 𝗣𝗶𝗻𝘁𝗲𝗿𝗲𝘀𝘁 ( ${userLimit}/5 )\n━━━━━━━━━━━━━━━\n\nHere are the top ${numberSearch} results for your query ${keySearchs}`,
         attachment: imgData,
       }, event.threadID, event.messageID);
 
