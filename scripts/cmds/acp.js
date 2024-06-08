@@ -5,9 +5,9 @@ module.exports = {
     name: "accept",
     aliases: ['acp'],
     version: "1.0",
-    author: "Ary Team",//Command modified by Aryan Chauhan don't change my author name
+    author: "NTKhang",
     countDown: 90,
-    role: 0,
+    role: 2,
     shortDescription: "accept users",
     longDescription: "accept users",
     category: "boxchat",
@@ -117,7 +117,7 @@ module.exports = {
         + `\nUrl: ${user.node.url.replace("www.facebook", "fb")}`
         + `\nTime: ${moment(user.time * 1009).tz("Asia/Kolkata").format("DD/MM/YYYY HH:mm:ss")}\n`);
     }
-    api.sendMessage(`❣️ 𝗖𝗛𝗢𝗢𝗦𝗘 𝗢𝗡𝗘 𝗢𝗣𝗧𝗜𝗢𝗡\n\n➤ 【 ${msg} 】\n➤ Reply to this message with content\n➤  [ add / del ] \n➤ [ comparison / or all ] to take action 💦`, event.threadID, (e, info) => {
+    api.sendMessage(`${msg}\n➤ Reply to this message with content\n➤  [ add / del ] \n➤ [ comparison / or all ] to take action`, event.threadID, (e, info) => {
       global.GoatBot.onReply.set(info.messageID, {
         commandName,
         messageID: info.messageID,
