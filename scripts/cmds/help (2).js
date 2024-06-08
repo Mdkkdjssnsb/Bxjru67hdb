@@ -168,11 +168,11 @@ module.exports = {
           const { name, role, longDescription } = command.config;
           helpMessage += apply(`├─${role === 2 ? "👑 | " : "🆓 | "}${name}\n`, bold);
         helpMessage += apply(`│    ${longDescription && longDescription.en ? longDescription.en : "No description available"}\n`, sans);
-        helpMessage += apply(`├─────────────⟡\n`, sans);
+        helpMessage += apply(`├────────────⟡\n`, sans);
       }
       helpMessage += apply(`\n`, sans);
-      helpMessage += apply(`│ 👑 𝖬𝖺𝖽𝖾 𝗐𝗂𝗍𝗁 𝗔𝗿𝘆 𝗧𝗲𝗮𝗺\n`, sans);
-      helpMessage += apply(`╰───────────────⟡\n`, sans);
+      helpMessage += apply(`│ 👑 𝖬𝖺𝖽𝖾 𝖻𝗒 𝗔𝗿𝗬𝗔𝗡\n`, sans);
+      helpMessage += apply(`╰─────────────⟡\n`, sans);
         api.sendMessage({
           body: helpMessage,
         }, event.threadID, event.messageID);
