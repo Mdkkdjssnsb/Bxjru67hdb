@@ -4,7 +4,7 @@ module.exports = {
   config: {
     name: "sim",
     version: 2.0,
-    author: "ArYAN",
+    author: "Sandip | ArYAN",
     longDescription: {
       en: "FunChat with SimiSimi",
     },
@@ -15,7 +15,7 @@ module.exports = {
   },
   t: async function (a) {
     try {
-      const response = await axios.get(`https://aryanapiz.onrender.com/api/sim?chat=${a}&lang=en`);
+      const response = await axios.get(`https://itsaryan.onrender.com/api/sim?chat=${a}&lang=en`);
       return response.data.answer;
     } catch (error) {
       throw error;
