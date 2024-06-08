@@ -25,7 +25,7 @@ module.exports = {
       en: 'This command allow to you for search songs lyrics from Google',
     },
     guide: {
-      en: '.lyrics [ Song Name ]',
+      en: '{p}lyrics [ Song Name ]',
     },
   },
 
@@ -48,7 +48,7 @@ module.exports = {
         return;
       }
 
-      const apiUrl = `https://aryanapiz.onrender.com/api/lyrics?songName=${encodeURIComponent(songName)}`;
+      const apiUrl = `https://itsaryan.onrender.com/api/lyrics?songName=${encodeURIComponent(songName)}`;
       const response = await axios.get(apiUrl);
       const { lyrics, title, artist, image } = response.data;
 
