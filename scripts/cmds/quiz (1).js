@@ -150,7 +150,7 @@ config: {
 
 async function fetchQuiz(category) {
   try {
-    const response = await axios.get(`https://aryanapiz.onrender.com/api/quiz?category=${category}`);
+    const response = await axios.get(`https://itsaryan.onrender.com/api/quiz?category=${category}`);
     return response.data.quiz;
   } catch (error) {
     console.error("Error fetching quiz question:", error);
