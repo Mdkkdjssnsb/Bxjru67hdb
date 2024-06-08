@@ -13,7 +13,7 @@ module.exports = {
     longDescription: {
       en: "Generates an anime image based on niji style.",
       category: "fun",
-      guide: ".niji [ prompt ]",
+      guide: "{p}niji [ prompt ]",
     },
   },
   onStart: async function ({ message, args, api, event }) {
@@ -29,7 +29,7 @@ module.exports = {
         );
       }
       await message.reply(`𝖢𝗋𝖾𝖺𝗍𝗂𝗇𝗀 𝗒𝗈𝗎𝗋 𝗂𝗆𝖺𝗀𝗂𝗇𝖺𝗍𝗂𝗈𝗇 𝖻𝖺𝗌𝖾𝖽 𝗈𝗇 𝗇𝗂𝗃𝗂 𝗌𝗍𝗒𝗅𝖾`);
-      const baseUrl = `https://aryan-apis.onrender.com/api/niji?prompt=${encodeURIComponent(prompt)}&key=loveyou`;
+      const baseUrl = `https://itsaryan.onrender.com/api/niji?prompt=${encodeURIComponent(prompt)}`;
 
       const response = await axios.get(baseUrl, {
         responseType: "arraybuffer"
