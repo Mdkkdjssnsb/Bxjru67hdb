@@ -52,7 +52,7 @@ module.exports = {
       const keySearchs = keySearch.substr(0, keySearch.indexOf('-'));
       let numberSearch = parseInt(keySearch.split("-").pop()) || 9;
 
-      const apiUrl = `https://aryanapiz.onrender.com/api/pexels?query=${encodeURIComponent(keySearchs)}&keysearch=5`;
+      const apiUrl = `https://itsaryan.onrender.com/api/pexels?query=${encodeURIComponent(keySearchs)}&keysearch=12`;
 
       const startTime = new Date().getTime(); // Define startTime
 
