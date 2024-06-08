@@ -48,8 +48,8 @@ module.exports = {
 
       api.setMessageReaction("🔎", event.messageID, (err) => {}, true);
 
-      const response = await axios.get(`https://aryanapiz.onrender.com/api/orochiai?prompt=${encodeURIComponent(prompt)}`);
-      const answer = response.data.answer;
+      const response = await axios.get(`https://itsaryan.onrender.com/api/bard?prompt=${encodeURIComponent(prompt)}`);
+      const answer = response.data;
 
       api.setMessageReaction("🔎", event.messageID, (err) => {}, true);
 
