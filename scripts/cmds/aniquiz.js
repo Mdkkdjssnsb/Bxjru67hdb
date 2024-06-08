@@ -11,7 +11,7 @@ module.exports = {
     name: "animequiz",
     aliases: ["aniquiz"],
     version: "1.0",
-    author: "ArYAN",
+    author: "Kshitiz | ArYAN",
     role: 0,
     longDescription: {
       en: "Guess the name of the anime character based on provided traits and tags.",
@@ -119,7 +119,7 @@ module.exports = {
 
   fetchCharacterData: async function () {
     try {
-      const k = await a.get('https://aryanapiz.onrender.com/api/aniquiz');
+      const k = await a.get('https://itsaryan.onrender.com/api/aniquiz');
       return k;
     } catch (error) {
       console.error("Error fetching anime character data:", error);
