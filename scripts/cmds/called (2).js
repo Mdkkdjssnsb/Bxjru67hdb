@@ -10,7 +10,7 @@ module.exports = {
     countDown: 10,
     role: 0,
     shortDescription: {
-      en: "send message to Orochi admins"
+      en: "send message to Bot admins"
     },
     longDescription: {
       en: "send report, feedback, bug, to Cassidy admins"
