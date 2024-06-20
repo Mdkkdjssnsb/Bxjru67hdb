@@ -48,12 +48,12 @@ module.exports = {
 
       api.setMessageReaction("🔎", event.messageID, (err) => {}, true);
 
-      const response = await axios.get(`https://itsaryan.onrender.com/api/orochi?prompt=${encodeURIComponent(prompt)}`);
-      const answer = response.data;
+      const response = await axios.get(`https://itsaryan.onrender.com/api/orochiai?prompt=${encodeURIComponent(prompt)}`);
+      const answer = response.data.fullResponse;
 
       api.setMessageReaction("🔎", event.messageID, (err) => {}, true);
 
-      await message.reply(`🤖 𝗢𝗿𝗼𝗰𝗵𝗶 ( ${userLimit}/50 )\n\n${answer}`);
+      await message.reply(answer);
 
       api.setMessageReaction("🟢", event.messageID, (err) => {}, true);
 
