@@ -18,8 +18,8 @@
   "16": "o",
   "17": "n",
   "facebookAccount": {
-    "email": "62aji3@laafd.com",
-    "password": "itsaryan@009",
+    "email": "lasem40740@idsho.com",
+    "password": "candybestbot@009",
     "2FASecret": "",
     "i_user": "",
     "proxy": null,
@@ -45,7 +45,7 @@
     ],
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
-  "nickNameBot": "🤖 𝗢𝗿𝗼𝗰𝗵𝗶 𝖡𝖾𝗌𝗍𝖻𝗈𝗍",
+  "nickNameBot": "🤖 𝗢𝗿𝗼𝗰𝗵𝗶 𝖢𝗁𝖺𝗍𝖻𝗈𝗍",
   "prefix": ".",
   "database": {
     "type": "sqlite",
