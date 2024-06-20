@@ -1,4 +1,41 @@
-.cmd install dalle.js const axios = require('axios');
+const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+
+const LIMIT_FILE_PATH = path.resolve(__dirname, 'sexduf.json');
+const DAILY_LIMIT = 5;
+
+function loadLimits() {
+  if (!fs.existsSync(LIMIT_FILE_PATH)) {
+    return { date: "", users: {} };
+  }
+  return JSON.parse(fs.readFileSync(LIMIT_FILE_PATH, 'utf-8'));
+}
+
+function saveLimits(limits) {
+  fs.writeFileSync(LIMIT_FILE_PATH, JSON.stringify(limits, null, 2));
+}
+
+function resetDailyLimits() {
+  const limits = loadLimits();
+  const today = new Date().toISOString().split('T')[0];
+  if (limits.date !== today) {
+    limits.date = today;
+    limits.users = {};
+    saveLimits(limits);
+  }
+}
+
+function getUserLimit(userId) {
+  const limits = loadLimits();
+  return limits.users[userId] || 0;
+}
+
+function incrementUserLimit(userId) {
+  const limits = loadLimits();
+  limits.users[userId] = (limits.users[userId] || 0) + 1;
+  saveLimits(limits);
+}
 
 module.exports = {
   config: {
@@ -26,9 +63,17 @@ module.exports = {
       return message.reply("❓| Please provide a prompt.");
     }
 
+    resetDailyLimits();
+    const userId = event.senderID;
+    const userLimit = getUserLimit(userId);
+
+    if (userLimit >= DAILY_LIMIT) {
+      return message.reply("⚠️| You have reached your daily limit of image requests.");
+    }
+
     let prompt = text;
 
-    message.reply("✅| Creating your Imagination...", async (err, info) => {
+    message.reply(`✅| Creating your Imagination... (You have ${DAILY_LIMIT - userLimit} requests left today)`, async (err, info) => {
       let ui = info.messageID;
       api.setMessageReaction("⏳", event.messageID, () => {}, true);
       try {
@@ -37,7 +82,7 @@ module.exports = {
         const images = response.data;
         message.unsend(ui);
         message.reply({
-          body: `🖼 [𝗕𝗜𝗡𝗚] \n━━━━━━━━━━━━\n\nPlease reply with the image number (1, 2, 3, 4) to get the corresponding image in high resolution.`,
+          body: `🖼 [𝗕𝗜𝗡𝗚] \n━━━━━━━━━━━━\n\nPlease reply with the image number (1, 2, 3, 4) to get the corresponding image in high resolution.\nYou have ${DAILY_LIMIT - userLimit - 1} requests left today.`,
           attachment: await Promise.all(images.map(img => global.utils.getStreamFromURL(img)))
         }, async (err, info) => {
           if (err) return console.error(err);
@@ -47,6 +92,7 @@ module.exports = {
             author: event.senderID,
             imageUrls: images
           });
+          incrementUserLimit(userId);
         });
       } catch (error) {
         console.error(error);
