@@ -166,7 +166,7 @@ module.exports = {
         let helpMessage = `📍|𝗔𝗟𝗟 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦\n\n`;
         for (const command of commands) {
           const { name, role, longDescription } = command.config;
-          helpMessage += apply(`├─${role === 2 ? "👑 | " : "🆓 | "}${name}\n`, bold);
+          helpMessage += apply(`├─${role === 2 ? "👑 | " : "🍬 | "}${name}\n`, bold);
         helpMessage += apply(`│    ${longDescription && longDescription.en ? longDescription.en : "No description available"}\n`, sans);
         helpMessage += apply(`├────────────⟡\n`, sans);
       }
@@ -188,7 +188,7 @@ module.exports = {
         if (targetCommand) {
           const { name, aliases, version, author, role, countDown, longDescription, guide } =
             targetCommand.config;
-        let helpMessage = apply(`╭•[ ${role === 2 ? "👑 | " : "🆓 | "} ${name} ]\n`, bold);
+        let helpMessage = apply(`╭•[ ${role === 2 ? "👑 | " : "🍬 | "} ${name} ]\n`, bold);
         if (aliases) {
             helpMessage += apply(`│ ✧ ALIASES\n`, bold);
             helpMessage += `│    ${aliases.join(", ")}\n`;
