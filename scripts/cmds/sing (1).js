@@ -50,7 +50,7 @@ module.exports = {
       const music = searchResults.videos[0];
       const musicUrl = music.url;
 
-      const songInfoResponse = await axios.get(`https://itsaryan.onrender.com/api/songinfo/v2?id=${music.videoId}`);
+      const songInfoResponse = await axios.get(`https://globalapis.onrender.com/api/songinfo/v2?id=${music.videoId}`);
       const songInfo = songInfoResponse.data;
 
       const stream = ytdl(musicUrl, { filter: 'audioonly' });
